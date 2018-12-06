@@ -21,8 +21,8 @@ CONST ENDPOINTS = {
 	RESOURCES: [
 		"spells", // retrieves a list of useable spells ONLY ADMINS CAN MODIFY THESE
 		"spells/:id" // gets detailed information about individual spell
-		"spellbook", // retrieves the logged in users spellbook FULL CONTROL VIA  - GET, POST
-		"spellbook/:id" // used to retrieve or remove spell on spellbook - PUT, DELETE
+		"spellbooks", // retrieves the logged in users spellbook FULL CONTROL VIA  - GET, POST
+		"spellbooks/:id" // used to retrieve or remove spell on spellbook - PUT, DELETE
 	]
 }
 
