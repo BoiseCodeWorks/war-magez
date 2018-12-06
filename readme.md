@@ -3,14 +3,21 @@ Welcome to Mage Warz
 
 Mage Wars is a D&D inspired api that gives you a chance to build up your unique book of spells.
 
-This is a trainer project designed to help developers learn the specifics around HTTP Requests and modern day frameworks. The server has been designed to accept request from any port and has specifically been built to serve static files from the www folder. It is recommended for this purpose to build out a project from the `wwwsrc` folder that will output the build to the `www` folder. The server utilizes cookie based authentication. All requests outside of `GET` must come from an authenticated user.
+This is a trainer project designed to help developers learn the specifics around HTTP Requests and modern day frameworks. The server has been designed to accept request from any port and has specifically been built to serve static files from the www folder. It is recommended for this purpose to build out a project that consumes the `API` and can be built into static files. The server utilizes cookie based authentication. All requests outside of `GET` must come from an authenticated user.
 
 Here are the endpoints for this project.
 
 
 ```javascript
 CONST ENDPOINTS = {
-	BASEURL: "https://mage-warz.herokuapp.com/api"
+	BASEURL: "https://mage-warz.herokuapp.com"
+	API: "https://mage-warz.herokuapp.com/api",
+	AUTH: {
+		login: "https://mage-warz.herokuapp.com/auth/login", // POST
+		register: "https://mage-warz.herokuapp.com/auth/register", // POST
+		authenticate: "https://mage-warz.herokuapp.com/auth/authenticate", // GET
+		logout: "https://mage-warz.herokuapp.com/auth/logout" // DELETE
+	},
 	RESOURCES: [
 		"spells", // retrieves a list of useable spells ONLY ADMINS CAN MODIFY THESE
 		"spells/:id" // gets detailed information about individual spell
