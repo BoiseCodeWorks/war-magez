@@ -6,7 +6,17 @@ var server = express()
 var cors = require('cors')
 var port = process.env.PORT || 3001
 
-server.use(cors())
+var whitelist = ['http://localhost:8080', 'http://localhost:8081', 'https://github.io']
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+
+server.use(cors(corsOptions))
 
 //Fire up database connection
 require('./db/mlab-config')
