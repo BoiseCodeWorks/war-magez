@@ -47,9 +47,10 @@ class Note {
 }
 
 class Spellbook {
+	name: string // required to create book
 	creatorId: string // auto assigned
-	spells: Array<Spell> // editable field of spell ids
-	notes: Array<Note> // editable field full objects
+	spells: Array<Spell> // editable field after creation - spell ids
+	notes: Array<Note> // editable field after creation  - full objects
 }
 
 ```
