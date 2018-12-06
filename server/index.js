@@ -5,16 +5,15 @@ var bp = require('body-parser')
 var server = express()
 var cors = require('cors')
 var port = process.env.PORT || 3001
-
 var whitelist = ['http://localhost:8080', 'http://localhost:8081', 'https://github.io']
+
 var corsOptions = {
   origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
+    var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+    callback(null, originIsWhitelisted);
+  },
+  credentials: true
+};
 
 server.use(cors(corsOptions))
 
